@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 무결성 체크
+	function chk() {
+		// frm.num.value : frm 밑에 num 밑의 value값
+		if(!frm.num.value){
+			alert("숫자입력안하니?");
+			frm.num.focus();
+			return false;
+		}
+		// isNaN(Not a Number) : 값이 숫자가 아닌지 확인 / 숫자 아니면 true, 숫자면 false
+		if(isNaN(frm.num.value)) {
+			alert("숫자가뭔지모르니?");
+			frm.num.focus();
+			frm.num.value=""; // 입력된 글자 지우기
+			return false;
+		}
+		return true;
+	}
+</script>
+</head>
+<body>
+
+	<h1> 숫자를 입력하세요 </h1>
+	<!-- action 에 있는 애를 찾아감, return chk()이 있기 때문에 자바 스크립트의 chk() 실행함 -->
+	<form action="Add3" name="frm" method="get" onsubmit="return chk()">
+		숫자 : <input type="text" name="num"><p>	
+		문자 : <input type="text" name="han"><p>
+		<input type="submit" value="확인">
+	</form>
+
+</body>
+</html>
